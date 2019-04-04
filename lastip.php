@@ -99,7 +99,7 @@ if(preg_match("/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/",$_SERVER['REMOTE_ADDR']) 
             <div class=""> 
                 <?php
                 $reader = new Reader($maxmindb);
-                print("<table class='table table-striped btable-bordered'>");
+                print("<table class='table table-striped table-bordered'>");
                 print("<thead class='thead-light'><tr><th>Location</th><th>Date</th><th>Platform</th><th>Browser</th></tr></thead>");
                 foreach ($ip_records['visitors'] as $key=>$record) {
                     if($record['ip'] != '127.0.0.1' && $record['ip']){
