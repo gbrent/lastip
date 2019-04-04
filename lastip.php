@@ -108,6 +108,8 @@ if(preg_match("/^\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}$/",$_SERVER['REMOTE_ADDR']) 
                         $isoCode = $ip_data->mostSpecificSubdivision->isoCode;
                         $country = $ip_data->country->name;
 
+			// Sometimes the IP may be bad, spoofed, or localhost. Maxmind does not like this and produces poor results
+			// Some countries do not have states or Maxmind can't find a city. Maybe it's in the countryside and there is no city.
                         if($city && $isoCode && $country){
                             $location = $city.", ".$isoCode." ".$country;
                         }elseif($country && (!$city && !$isoCode)){
